@@ -1,8 +1,14 @@
+//class component example - Header
 import react from 'react';
 class Header extends react.Component{
     render(){
         return(
-            <h1>Hello</h1>
+            <div className="ui one item menu">
+                <h2 class="item">
+                    Contact Manager
+                </h2>
+            </div>
         )
     }
 }
+export default Header;
