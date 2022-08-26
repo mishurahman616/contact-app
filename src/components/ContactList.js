@@ -2,10 +2,24 @@
 
 import React from "react";
 
-const ContactList = () =>{
+const ContactList = (props) =>{
+    const renderContactList = props.contacts.map((contact)=>{
+        return(
+            <div className="item">
+                <div class="right floated content">
+                    <i className="trash alternate outline icon"></i>
+                </div>
+                <div className="content">
+                    <div className="header">{contact.name}</div>
+                    <div>{contact.email}</div>
+                </div>
+
+            </div>
+        )
+    });
     return(
             <div className="ui celled list">
-                <h3> Contact List </h3>
+                {renderContactList}
             </div>
     );
 }
