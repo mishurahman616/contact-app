@@ -1,20 +1,12 @@
 //functional component example - Contact List
 
 import React from "react";
+import ContactCard from "./ContactCard";
 
 const ContactList = (props) =>{
     const renderContactList = props.contacts.map((contact)=>{
         return(
-            <div className="item">
-                <div class="right floated content">
-                    <i className="trash alternate outline icon"></i>
-                </div>
-                <div className="content">
-                    <div className="header">{contact.name}</div>
-                    <div>{contact.email}</div>
-                </div>
-
-            </div>
+            <ContactCard contact={contact} />
         )
     });
     return(
