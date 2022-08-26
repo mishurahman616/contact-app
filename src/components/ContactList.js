@@ -10,7 +10,7 @@ const ContactList = (props) =>{
         )
     });
     return(
-            <div className="ui celled list">
+            <div className="ui middle aligned divided list">
                 {renderContactList}
             </div>
     );
