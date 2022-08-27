@@ -4,7 +4,7 @@ class Header extends react.Component{
     render(){
         return(
             <div className="ui one item menu">
-                <h2 class="item">
+                <h2 className="item">
                     Contact Manager
                 </h2>
             </div>

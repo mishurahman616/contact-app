@@ -1,20 +1,24 @@
 //functional component example - Contact add form
 import React, {useState} from "react";
-const AddContact = () => {
+const AddContact = (props) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const add = (e) =>{
         e.preventDefault();
-        if(name=="" || email ==""){
+        if(name==="" || email ===""){
             alert("All fields are mandatory");
             return;
         }
-
+        props.addContactHandler({name:name, email:email})
+        setName("");
+        setEmail("");
     }
+
+    
     return (
         <div className="ui main">
             <h2>Add Contact</h2>
-            <form class="ui fluid form" onSubmit={add}>
+            <form className="ui fluid form" onSubmit={add}>
                 <div className="ui divider"></div>
                 <div className="field" placeholder="Last Name">
                     <div className="ui pointing below blue basic label">

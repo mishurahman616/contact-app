@@ -5,11 +5,14 @@ import AddContact from './AddContact';
 import ContactList from './ContactList';
 
 function App() {
-const [contacts, setStates] = useState([]);
+const [contacts, setContact] = useState([]);
+const addContactHandler = (contact)=>{
+  setContact([...contacts, contact]);
+}
   return (
     <div className='ui container'>
       <Header />
-      <AddContact />
+      <AddContact addContactHandler={addContactHandler}/>
       <ContactList contacts={contacts}/>
     </div>
   );
