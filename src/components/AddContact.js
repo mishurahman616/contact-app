@@ -1,6 +1,10 @@
 //functional component example - Contact add form
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
+
 const AddContact = (props) => {
+    let navigate = useNavigate();
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const add = (e) =>{
@@ -12,9 +16,9 @@ const AddContact = (props) => {
         props.addContactHandler({name:name, email:email})
         setName("");
         setEmail("");
+        return navigate('/');
     }
 
-    
     return (
         <div className="ui main">
             <h2>Add Contact</h2>

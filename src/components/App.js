@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { Routes, Switch, Route}  from 'react-router-dom';
 import {v4 as uuid} from 'uuid';
 import './App.css';
 import Header from './Header';
@@ -7,10 +8,11 @@ import ContactList from './ContactList';
 
 function App() {
   const LOCAL_STORAGE_KEY="contacts";
-const [contacts, setContact] = useState([]);
+const [contacts, setContact] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)));
 
 const addContactHandler = (contact)=>{
   setContact([...contacts, {id:uuid(), ...contact}]);
+  alert('Contact Added Successfully');
 }
 const removeContactHandler=(id)=>{
   const newContactList = contacts.filter((contact)=>{
@@ -18,27 +20,25 @@ const removeContactHandler=(id)=>{
   });
   setContact(newContactList);
 }
-useEffect(()=>{
-  const retrivedContacts=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-  if(retrivedContacts) {
-      setContact(retrivedContacts)
-    };
-}, []);
 
   useEffect(()=>{
-    if(contacts.length > 0){
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-    }
   }, [contacts]);
   
 
 
   return (
     <div className='ui container'>
-      <Header />
-      <AddContact addContactHandler={addContactHandler}/>
-      <ContactList contacts={contacts} getContactId={removeContactHandler}/>
-    </div>
+              <Header />
+
+      <Routes>
+      <Route path="/" element={<ContactList contacts={contacts} getContactId={removeContactHandler} />} />
+      <Route path="/add" element={<AddContact addContactHandler={addContactHandler} />} />
+
+        {/*<AddContact addContactHandler={addContactHandler}/> */}
+        {/*<ContactList contacts={contacts} getContactId={removeContactHandler}/> */}
+      </Routes>
+       </div>
   );
 }
 
