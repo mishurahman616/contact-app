@@ -1,5 +1,5 @@
 # Contact-app
-### This app is made for the purpose of learning ReactJS. Here, I will try to implement basic CURD Opreation, Search, filter etc.
+### This app is made for the purpose of learning ReactJS. Here, I implemented basic CURD Opreation (Create, Update, Read, Delete), Search, filter etc.
 ## Contact List
 ![Contact List](https://github.com/mishurahman616/contact-app/blob/main/src/images/implementaion/ContactList.png?raw=true)
 
