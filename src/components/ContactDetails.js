@@ -7,6 +7,11 @@ const ContactDetails = (props)=>{
     const location = useLocation();
     return (
         <div className="main">
+             <h2>Contact Details
+                <Link to="/">
+                    <button  className="ui button blue right floated">Contact List</button>
+                </Link>
+            </h2>
             <div className="ui card centered">
                 <div className="image" style={{margin:"10px 10px"}}>
                     <img src={userImage} alt ="user" />

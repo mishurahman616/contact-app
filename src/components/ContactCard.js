@@ -6,7 +6,10 @@ const ContactCard = (props) =>{
     return(
         <div className="item">
         <div className="right floated content">
-            <i className="trash alternate outline icon" style={{color:"red", marginTop: "5px"}} onClick={()=>props.clickHandler(id)}></i>
+           <Link to={`/edit/${id}`} state={{contact: props.contact}}>
+            <i className="edit alternate outline icon" style={{color:"blue", marginTop: "5px"}}></i>
+           </Link>
+            <i className="trash alternate outline icon" style={{color:"red", marginTop: "5px", marginLeft:"10px"}} onClick={()=>props.clickHandler(id)}></i>
         </div>
         <img className="ui mini avater image" src={userIcon} alt="user" />
         <div className="content">
@@ -16,25 +19,6 @@ const ContactCard = (props) =>{
             </Link>
 
         </div>
-            <div className="ui basic modal">
-                <div className="ui icon header">
-                    <i className="archive icon"></i>
-                    Archive Old Messages
-                </div>
-                <div className="content">
-                    <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
-                </div>
-                <div className="actions">
-                    <div className="ui red basic cancel inverted button">
-                    <i className="remove icon"></i>
-                    No
-                    </div>
-                    <div class="ui green ok inverted button">
-                    <i class="checkmark icon"></i>
-                    Yes
-                    </div>
-                </div>
-            </div>
     </div>
     );
 }
