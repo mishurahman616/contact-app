@@ -94,4 +94,3 @@ function App() {
 
 export default App;
 
-  //This is changed via  branch-2 to test conflict and merge
