@@ -69,9 +69,10 @@ function App() {
       setSearchResults(newContactList);
     }else{
       setSearchResults(contacts);
+      
     }
   }
-  
+  //This is changed via new branch to test conflict and merge
 
 
   return (
